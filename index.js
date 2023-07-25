@@ -19,6 +19,12 @@ Aşağıdakileri yap:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
+const surucuYasi = 21;
+if (surucuYasi > 18) {
+  console.log("true");
+} else {
+  console.log("false");
+}
 
 /*
 Görev 1b - Değerler (puanlamaya dahil değildir)
@@ -32,6 +38,16 @@ Aşağıdakileri yap:
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
 
+let birinciDeger = 10;
+let ikinciDeger = 15;
+
+if (birinciDeger == ikinciDeger) {
+  console.log("tamam");
+} else {
+  birinciDeger++;
+  console.log(birinciDeger);
+}
+
 /*
 Görev 1c - String bir değeri Number'a dönüştürün (puanlamaya dahil değildir)
 
@@ -43,6 +59,9 @@ Aşağıdakileri yap:
    İPUCU: Number metoduna bakabilirsin
 */
 
+let stringToNumber = Number("1999");
+//console.log(stringToNumber);
+
 /*
 Görev 1d - Çarpma
  
@@ -52,9 +71,11 @@ Aşağıdakileri yaparak carpma isimli fonksiyonu tamamla:
    3. console.log(carpma(7,4)) ile yazdığın fonsiyonu test edin. Console'da sonucu 28 olarak görmelisin.
 */
 
-function carpma(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function carpma(a, b) {
+  let sonuc = a * b;
+  return sonuc;
 }
+//console.log(carpma(7, 4));
 
 /* Görev 2 : Köpeğin Yaşı */
 
@@ -65,9 +86,11 @@ Aşağıdakileri yap:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function kopeginYasi(a) {
+  let yas = a * 7;
+  return yas;
 }
+//console.log(kopeginYasi(10));
 
 /* Görev 3 */
 /*
@@ -84,7 +107,21 @@ OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı ye
 */
 
 function oyun(oyuncu, bilgisayar) {
-  /*buraya kodunu yazabilirsin*/
+  if (oyuncu == bilgisayar) {
+    console.log("Beraberlik");
+  } else if (oyuncu == "Taş" && bilgisayar == "Kağıt") {
+    console.log("Kaybetin!");
+  } else if (oyuncu == "Taş" && bilgisayar == "Makas") {
+    console.log("Kazandın!");
+  } else if (oyuncu == "Makas" && bilgisayar == "Taş") {
+    console.log("Kaybettin!");
+  } else if (oyuncu == "Makas" && bilgisayar == "Kağıt") {
+    console.log("Kazandın!");
+  } else if (oyuncu == "Kağıt" && bilgisayar == "Makas") {
+    console.log("Kaybettin!");
+  } else if (oyuncu == "Kağıt" && bilgisayar == "Makas") {
+    console.log("Kazandın!");
+  }
 }
 
 // Şimdi Taş, Kağıt, Makas oyununu bilgisayara karşı oynayalım!
@@ -102,6 +139,21 @@ function oyun(oyuncu, bilgisayar) {
 Şimdi kendi seçtiğin bir seçime karşı bilgisayarın rastgele oluşturduğu seçimi yukarıda yazdığın oyun fonsiyonu ile oynayın ve sonucu console'a yazdırın.
 Örn: console.log(oyun("Makas",bilgisayarinSecimi()))
 */
+function bilgisayarinSecimi() {
+  // 0 ila 2 arasında bir rastgele sayı döndürür
+  const randomNumber = Math.floor(Math.random() * 3);
+
+  // Rastgele sayıya göre bir seçim döndürür
+  if (randomNumber === 0) {
+    return "Taş";
+  } else if (randomNumber === 1) {
+    return "Kağıt";
+  } else {
+    return "Makas";
+  }
+}
+
+console.log(oyun("Taş", bilgisayarinSecimi()));
 
 /* Görev 4 : Metrik Dönüştürücü */
 
